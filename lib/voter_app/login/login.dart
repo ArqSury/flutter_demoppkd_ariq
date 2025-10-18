@@ -25,6 +25,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.all(Radius.circular(8)),
+                  boxShadow: [BoxShadow(blurRadius: 8, color: Colors.black)],
                 ),
               ),
             ),
