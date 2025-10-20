@@ -34,54 +34,74 @@ class _LoginWidgetState extends State<LoginWidget> {
                     topRight: Radius.circular(20),
                   ),
                 ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                child: ListView(
                   children: [
-                    SizedBox(height: 120),
-                    Padding(
-                      padding: EdgeInsets.only(left: 16),
-                      child: Text(
-                        "Nama:",
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(height: 100),
+                        Padding(
+                          padding: EdgeInsets.only(left: 16),
+                          child: Text(
+                            "Nama:",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.all(16),
-                      child: UserInputWidget(hint: "Masukan Nama"),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 16),
-                      child: Text(
-                        "No. HP:",
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
+                        Container(
+                          margin: EdgeInsets.all(12),
+                          child: TextField(
+                            decoration: InputDecoration(
+                              hintText: "Masukan Nama",
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(8),
+                                ),
+                                borderSide: BorderSide(color: Colors.black),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(8),
+                                ),
+                                borderSide: BorderSide(color: Colors.black),
+                              ),
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.all(16),
-                      child: UserInputWidget(hint: "Masukan No. HP"),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 16),
-                      child: Text(
-                        "Password:",
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
+                        Padding(
+                          padding: EdgeInsets.only(left: 16),
+                          child: Text(
+                            "No. HP:",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.all(16),
-                      child: UserInputWidget(
-                        hint: "Minimal 8 karakter",
-                        isPassword: true,
-                      ),
+                        Container(
+                          margin: EdgeInsets.all(12),
+                          child: UserInputWidget(hint: "Masukan No. HP"),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 16),
+                          child: Text(
+                            "Password:",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.all(12),
+                          child: UserInputWidget(
+                            hint: "Minimal 8 karakter",
+                            isPassword: true,
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
