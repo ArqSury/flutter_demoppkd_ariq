@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demoppkd_ariq/day_13/reuse/account.dart';
 import 'package:flutter_demoppkd_ariq/day_13/reuse/input_user.dart';
+import 'package:flutter_demoppkd_ariq/day_15/routing.dart';
 
 class Tugas6Flutter extends StatefulWidget {
   const Tugas6Flutter({super.key});
@@ -75,8 +76,10 @@ class _Tugas6FlutterState extends State<Tugas6Flutter> {
                 ),
               ),
               onPressed: () {
-                debugPrint("LOGIN");
-                setState(() {});
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => RoutingWidget()),
+                );
               },
               child: Text(
                 "Login",

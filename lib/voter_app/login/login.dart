@@ -34,91 +34,83 @@ class _LoginWidgetState extends State<LoginWidget> {
                     topRight: Radius.circular(20),
                   ),
                 ),
-                child: ListView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(height: 100),
-                        Padding(
-                          padding: EdgeInsets.only(left: 16),
-                          child: Text(
-                            "Nama:",
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
+                    SizedBox(height: 100),
+                    Padding(
+                      padding: EdgeInsets.only(left: 16),
+                      child: Text(
+                        "Nama:",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.all(12),
+                      child: TextField(
+                        decoration: InputDecoration(
+                          hintText: "Masukan Nama",
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(8)),
+                            borderSide: BorderSide(color: Colors.black),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(8)),
+                            borderSide: BorderSide(color: Colors.black),
                           ),
                         ),
-                        Container(
-                          margin: EdgeInsets.all(12),
-                          child: TextField(
-                            decoration: InputDecoration(
-                              hintText: "Masukan Nama",
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(8),
-                                ),
-                                borderSide: BorderSide(color: Colors.black),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(8),
-                                ),
-                                borderSide: BorderSide(color: Colors.black),
-                              ),
-                            ),
-                          ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 16),
+                      child: Text(
+                        "No. HP:",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
                         ),
-                        Padding(
-                          padding: EdgeInsets.only(left: 16),
-                          child: Text(
-                            "No. HP:",
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.all(12),
+                      child: UserInputWidget(hint: "Masukan No. HP"),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 16),
+                      child: Text(
+                        "Password:",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
                         ),
-                        Container(
-                          margin: EdgeInsets.all(12),
-                          child: UserInputWidget(hint: "Masukan No. HP"),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(left: 16),
-                          child: Text(
-                            "Password:",
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.all(12),
-                          child: UserInputWidget(
-                            hint: "Minimal 8 karakter",
-                            isPassword: true,
-                          ),
-                        ),
-                      ],
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.all(12),
+                      child: UserInputWidget(
+                        hint: "Minimal 8 karakter",
+                        isPassword: true,
+                      ),
                     ),
                   ],
                 ),
               ),
             ],
           ),
-          Positioned(
-            top: -86,
-            child: Container(
-              margin: EdgeInsets.all(8),
-              child: Image(
-                image: AssetImage(
-                  "assets/images/voter_app/logo_voterson_nobg2.png",
-                ),
-              ),
-            ),
-          ),
+          // Positioned(
+          //   top: -86,
+          //   child: Container(
+          //     margin: EdgeInsets.all(8),
+          //     child: Image(
+          //       image: AssetImage(
+          //         "assets/images/voter_app/logo_voterson_nobg2.png",
+          //       ),
+          //     ),
+          //   ),
+          // ),
         ],
       ),
     );

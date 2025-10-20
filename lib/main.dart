@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_demoppkd_ariq/voter_app/login/login.dart';
+import 'package:flutter_demoppkd_ariq/day_13/tugas6_flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const LoginWidget(),
+      home: const Tugas6Flutter(),
     );
   }
 }
