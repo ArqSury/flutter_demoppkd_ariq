@@ -29,17 +29,32 @@ class _LoginWidgetState extends State<LoginWidget> {
                     topLeft: Radius.circular(20),
                     topRight: Radius.circular(20),
                   ),
-                  boxShadow: [BoxShadow(blurRadius: 8, color: Colors.black)],
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [SizedBox(height: 120), Text("Nama:")],
+                  children: [
+                    SizedBox(height: 120),
+                    Padding(
+                      padding: EdgeInsets.only(left: 20),
+                      child: Text(
+                        "Nama:",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.all(20),
+                      child: UserInputWidget(hint: "Masukan Nama"),
+                    ),
+                  ],
                 ),
               ),
             ],
           ),
           Positioned(
-            top: -88,
+            top: -86,
             child: Container(
               margin: EdgeInsets.all(8),
               child: Image(
