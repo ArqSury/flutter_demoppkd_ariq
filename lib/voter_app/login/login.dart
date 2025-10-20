@@ -15,7 +15,11 @@ class _LoginWidgetState extends State<LoginWidget> {
       body: Stack(
         alignment: AlignmentDirectional.bottomCenter,
         children: [
-          Container(color: Colors.red, height: 840, width: 500),
+          Container(
+            color: Colors.red,
+            height: double.infinity,
+            width: double.infinity,
+          ),
           Stack(
             clipBehavior: Clip.antiAlias,
             alignment: AlignmentDirectional.topStart,
@@ -35,7 +39,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                   children: [
                     SizedBox(height: 120),
                     Padding(
-                      padding: EdgeInsets.only(left: 20),
+                      padding: EdgeInsets.only(left: 16),
                       child: Text(
                         "Nama:",
                         style: TextStyle(
@@ -45,11 +49,25 @@ class _LoginWidgetState extends State<LoginWidget> {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.all(20),
-                      child: UserInputWidget(hint: "Masukan nama"),
+                      margin: EdgeInsets.all(16),
+                      child: UserInputWidget(hint: "Masukan Nama"),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(left: 20),
+                      padding: EdgeInsets.only(left: 16),
+                      child: Text(
+                        "No. HP:",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.all(16),
+                      child: UserInputWidget(hint: "Masukan No. HP"),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 16),
                       child: Text(
                         "Password:",
                         style: TextStyle(
@@ -59,7 +77,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.all(20),
+                      margin: EdgeInsets.all(16),
                       child: UserInputWidget(
                         hint: "Minimal 8 karakter",
                         isPassword: true,
