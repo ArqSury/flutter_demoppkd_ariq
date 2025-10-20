@@ -46,7 +46,24 @@ class _LoginWidgetState extends State<LoginWidget> {
                     ),
                     Container(
                       margin: EdgeInsets.all(20),
-                      child: UserInputWidget(hint: "Masukan Nama"),
+                      child: UserInputWidget(hint: "Masukan nama"),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 20),
+                      child: Text(
+                        "Password:",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.all(20),
+                      child: UserInputWidget(
+                        hint: "Minimal 8 karakter",
+                        isPassword: true,
+                      ),
                     ),
                   ],
                 ),
