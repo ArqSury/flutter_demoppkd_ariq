@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_demoppkd_ariq/day_13/tugas6_flutter.dart';
+
+import 'package:flutter_demoppkd_ariq/day_15/app1/homepage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const Tugas6Flutter(),
+      home: const HomePage(),
     );
   }
 }
