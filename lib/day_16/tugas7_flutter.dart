@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demoppkd_ariq/day_15/app1/homepage.dart';
+import 'package:flutter_demoppkd_ariq/day_16/drawer/home_screen.dart';
 import 'package:flutter_demoppkd_ariq/day_16/drawer/kategori_produk.dart';
 import 'package:flutter_demoppkd_ariq/day_16/drawer/pengingat_waktu.dart';
 import 'package:flutter_demoppkd_ariq/day_16/drawer/switch_background.dart';
@@ -15,6 +17,7 @@ class Tugas7Flutter extends StatefulWidget {
 class _Tugas7FlutterState extends State<Tugas7Flutter> {
   int _selectedindex = 0;
   static const List<Widget> _widgetOptions = [
+    HomeScreen(),
     SyaratKetentuan(),
     BackgroundSwitch(),
     ProdukKategori(),
@@ -57,36 +60,43 @@ class _Tugas7FlutterState extends State<Tugas7Flutter> {
               onTap: () {
                 onTapDrawer(0);
               },
-              leading: Icon(Icons.check_box),
-              title: Text("Syarat dan Ketentuan"),
+              leading: Icon(Icons.home),
+              title: Text("Layar Utama"),
             ),
             ListTile(
               onTap: () {
                 onTapDrawer(1);
               },
-              leading: Icon(Icons.swap_horiz),
-              title: Text("Ganti Background"),
+              leading: Icon(Icons.check_box),
+              title: Text("Syarat dan Ketentuan"),
             ),
             ListTile(
               onTap: () {
                 onTapDrawer(2);
+              },
+              leading: Icon(Icons.swap_horiz),
+              title: Text("Background"),
+            ),
+            ListTile(
+              onTap: () {
+                onTapDrawer(3);
               },
               leading: Icon(Icons.shopping_cart),
               title: Text("Produk"),
             ),
             ListTile(
               onTap: () {
-                onTapDrawer(3);
+                onTapDrawer(4);
               },
               leading: Icon(Icons.calendar_today),
               title: Text("Tanggal Lahir"),
             ),
             ListTile(
               onTap: () {
-                onTapDrawer(4);
+                onTapDrawer(5);
               },
               leading: Icon(Icons.alarm),
-              title: Text("Atur Pengingat"),
+              title: Text("Alarm"),
             ),
           ],
         ),
