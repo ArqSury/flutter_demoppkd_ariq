@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demoppkd_ariq/day_16/tugas8_flutter.dart';
 import 'package:intl/date_symbol_data_local.dart';
-import 'package:flutter_demoppkd_ariq/day_16/tugas7_flutter.dart';
 
 void main() async {
   await initializeDateFormatting("id_ID", null);
@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const Tugas7Flutter(),
+      home: const Tugas8Flutter(),
     );
   }
 }
