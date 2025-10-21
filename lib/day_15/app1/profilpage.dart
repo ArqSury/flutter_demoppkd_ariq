@@ -63,7 +63,7 @@ class _ProfilPageState extends State<ProfilPage> {
                 color: Colors.grey,
                 borderRadius: BorderRadius.all(Radius.circular(12)),
               ),
-              child: TextField(),
+              child: Text("Masukan Deskripsi"),
             ),
           ],
         ),

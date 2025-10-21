@@ -1,18 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ButtonFunction extends StatefulWidget {
-  const ButtonFunction({
-    super.key,
-    required this.button,
-    this.press,
-    required this.height,
-    required this.widht,
-    required this.buttoncolor,
-  });
+  const ButtonFunction({super.key, required this.button, this.press});
   final String button;
-  final double height;
-  final double widht;
-  final int buttoncolor;
   final void Function()? press;
   @override
   State<ButtonFunction> createState() => _ButtonFunctionState();
@@ -21,16 +11,28 @@ class ButtonFunction extends StatefulWidget {
 class _ButtonFunctionState extends State<ButtonFunction> {
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Color(widget.buttoncolor),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(8)),
+    return Container(
+      height: 100,
+      width: double.infinity,
+      margin: const EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
+      child: ElevatedButton(
+        onPressed: widget.press,
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
         ),
-        minimumSize: Size(widget.widht, widget.height),
+        child: Text(
+          widget.button,
+          style: TextStyle(
+            color: Colors.red,
+            fontSize: 30,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
-      onPressed: widget.press,
-      child: Text(widget.button),
     );
   }
 }

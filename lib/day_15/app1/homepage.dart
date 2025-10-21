@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demoppkd_ariq/day_15/app1/jadwal_kelas.dart';
+import 'package:flutter_demoppkd_ariq/day_15/app1/mainpage.dart';
 import 'package:flutter_demoppkd_ariq/day_15/app1/profilpage.dart';
-import 'package:flutter_demoppkd_ariq/day_15/app1/widget/button_widget.dart';
-import 'package:flutter_demoppkd_ariq/day_15/app1/widget/news.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -11,13 +11,25 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  // int _selectdrawer = 0;
-  // static const List<Widget> _drawerOption = [ProfilPage(), JadwalKelas()];
+  int _selectedBottomNavBAr = 0;
+  static const List<Widget> _navBarOptions = [
+    MAinPage(),
+    ProfilPage(),
+    JadwalKelas(),
+  ];
+  void _onItemTap(int bar) {
+    setState(() {
+      _selectedBottomNavBAr = bar;
+    });
+  }
+
+  int _selectedDrawer = 0;
+  static const List<Widget> _drawerOptions = [ProfilPage(), JadwalKelas()];
+
   void onTapDrawer(int drawer) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => ProfilPage()),
-    );
+    setState(() {
+      _selectedDrawer = drawer;
+    });
 
     // setState(() {
     //   // _selectdrawer = drawer;
@@ -34,7 +46,6 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
         backgroundColor: Colors.redAccent,
       ),
-
       drawer: Drawer(
         child: ListView(
           children: [
@@ -67,92 +78,9 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      body: ListView(
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(12),
-                child: Text(
-                  "Halo, Ariq Surya Wardhana!",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-              ),
-              Divider(),
-              Padding(
-                padding: const EdgeInsets.all(12),
-                child: Text("Berita Hari Ini", style: TextStyle(fontSize: 20)),
-              ),
-              SingleChildScrollView(
-                child: Column(
-                  children: [
-                    NewsWidget(
-                      news: Icons.schedule,
-                      newstitle: "Perubahan Jadwal",
-                      newsdate: "2 Juni 2025",
-                    ),
-                    NewsWidget(
-                      news: Icons.task,
-                      newstitle: "Tugas Baru",
-                      newsdate: "6 Juni 2025",
-                    ),
-                    NewsWidget(
-                      news: Icons.celebration,
-                      newstitle: "Penghargaan",
-                      newsdate: "20 Juni 2025",
-                    ),
-                    NewsWidget(
-                      news: Icons.person,
-                      newstitle: "Murid Baru",
-                      newsdate: "21 Juni 2025",
-                    ),
-                    NewsWidget(
-                      news: Icons.favorite,
-                      newstitle: "Cinta Lokasi",
-                      newsdate: "30 Juni 2025",
-                    ),
-                  ],
-                ),
-              ),
-              Divider(),
-              Container(
-                margin: const EdgeInsets.all(12),
-                padding: const EdgeInsets.all(8),
-                height: 200,
-                width: double.infinity,
-
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(8)),
-                  boxShadow: [BoxShadow(blurRadius: 8)],
-                  color: Colors.brown,
-                ),
-                child: Column(
-                  spacing: 8,
-                  children: [
-                    Padding(padding: const EdgeInsets.all(4)),
-                    Text(
-                      "Anda Belum Absen",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text("*Klik 'Absensi' untuk Absen*"),
-                    SizedBox(height: 10),
-                    ButtonFunction(
-                      button: "ABSENSI",
-                      height: 50,
-                      widht: 50,
-                      buttoncolor: 0xFFFFFFFF,
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ],
+      body: Center(child: _navBarOptions.elementAt(_selectedBottomNavBAr)),
+      bottomNavigationBar: BottomNavigationBar(
+        items: <BottomNavigationBarItem>[],
       ),
     );
   }
