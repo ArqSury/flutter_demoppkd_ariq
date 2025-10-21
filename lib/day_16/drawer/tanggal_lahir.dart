@@ -37,6 +37,16 @@ class _TanggalLahirState extends State<TanggalLahir> {
               padding: EdgeInsets.all(8),
               child: InputFunction(hint: "Masukan Nama"),
             ),
+            Text("ID:"),
+            Container(
+              padding: EdgeInsets.all(8),
+              child: InputFunction(hint: "Masukan ID"),
+            ),
+            Text("Email:"),
+            Container(
+              padding: EdgeInsets.all(8),
+              child: InputFunction(hint: "Masukan Email"),
+            ),
             Text("Jurusan:"),
             DropdownButton(
               value: dropDownValue,
@@ -56,7 +66,9 @@ class _TanggalLahirState extends State<TanggalLahir> {
             Row(
               spacing: 8,
               children: [
-                Text(DateFormat('dd-MMMM-yyyy').format(selectedPicked!)),
+                Text(
+                  DateFormat("dd-MMMM-yyyy", "id_ID").format(selectedPicked!),
+                ),
                 ElevatedButton(
                   onPressed: () async {
                     final DateTime? picked = await showDatePicker(
