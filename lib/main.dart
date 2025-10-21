@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:flutter_demoppkd_ariq/day_16/tugas7_flutter.dart';
 
-void main() {
+void main() async {
+  await initializeDateFormatting("id_ID", null);
   runApp(const MyApp());
 }
 
