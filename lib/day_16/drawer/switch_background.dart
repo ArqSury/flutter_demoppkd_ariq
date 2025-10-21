@@ -8,8 +8,45 @@ class BackgroundSwitch extends StatefulWidget {
 }
 
 class _BackgroundSwitchState extends State<BackgroundSwitch> {
+  bool isSwitched = false;
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Column(
+        children: [
+          Expanded(
+            child: Container(
+              width: double.infinity,
+              padding: EdgeInsets.all(12),
+              color: isSwitched ? Colors.black : Colors.white,
+              child: Column(
+                children: [
+                  Text(
+                    "Ganti Background",
+                    style: TextStyle(
+                      color: isSwitched ? Colors.white : Colors.black,
+                    ),
+                  ),
+                  Switch(
+                    value: isSwitched,
+                    onChanged: (value) {
+                      setState(() {
+                        isSwitched = value;
+                      });
+                    },
+                  ),
+                  Text(
+                    isSwitched ? "Mode Gelap" : "Mode Terang",
+                    style: TextStyle(
+                      color: isSwitched ? Colors.white : Colors.black,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
