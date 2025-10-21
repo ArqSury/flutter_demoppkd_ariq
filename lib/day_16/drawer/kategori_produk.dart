@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demoppkd_ariq/day_16/produk/elektronik.dart';
+import 'package:flutter_demoppkd_ariq/day_16/produk/liburan.dart';
+import 'package:flutter_demoppkd_ariq/day_16/produk/makanan.dart';
+import 'package:flutter_demoppkd_ariq/day_16/produk/otomotif.dart';
 
 class ProdukKategori extends StatefulWidget {
   const ProdukKategori({super.key});
@@ -13,7 +17,7 @@ class _ProdukKategoriState extends State<ProdukKategori> {
     "Elektronik",
     "Makanan",
     "Otomotif",
-    "Sastra",
+    "Liburan",
   ];
   @override
   Widget build(BuildContext context) {
@@ -47,7 +51,23 @@ class _ProdukKategoriState extends State<ProdukKategori> {
             ],
           ),
           Divider(),
-          Expanded(child: Column(children: [])),
+          Column(
+            children: [
+              Container(
+                margin: EdgeInsets.all(12),
+                width: double.infinity,
+                child: dropDownValue == "Elektronik"
+                    ? ElektronikProduk()
+                    : dropDownValue == "Makanan"
+                    ? MakananProduk()
+                    : dropDownValue == "Otomotif"
+                    ? OtomotifProduk()
+                    : dropDownValue == "Liburan"
+                    ? LiburanProduk()
+                    : null,
+              ),
+            ],
+          ),
         ],
       ),
     );
