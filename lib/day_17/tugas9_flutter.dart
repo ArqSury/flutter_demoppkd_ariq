@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demoppkd_ariq/day_17/tugas_list.dart';
 import 'package:flutter_demoppkd_ariq/day_17/tugas_listmap.dart';
+import 'package:flutter_demoppkd_ariq/day_17/tugas_model.dart';
 
 class Tugas9Flutter extends StatefulWidget {
   const Tugas9Flutter({super.key});
@@ -11,7 +12,11 @@ class Tugas9Flutter extends StatefulWidget {
 
 class _Tugas9FlutterState extends State<Tugas9Flutter> {
   int _selectedDrawer = 0;
-  static const List<Widget> _widgetOption = [TugasList(), TugasListmap()];
+  static const List<Widget> _widgetOption = [
+    TugasList(),
+    TugasListmap(),
+    TugasModel(),
+  ];
   void onTapDrawer(int index) {
     setState(() {
       _selectedDrawer = index;
@@ -49,6 +54,13 @@ class _Tugas9FlutterState extends State<Tugas9Flutter> {
               },
               leading: Icon(Icons.map),
               title: Text("ListViewListMap Widget"),
+            ),
+            ListTile(
+              onTap: () {
+                onTapDrawer(2);
+              },
+              leading: Icon(Icons.model_training),
+              title: Text("ListViewModel Widget"),
             ),
           ],
         ),
