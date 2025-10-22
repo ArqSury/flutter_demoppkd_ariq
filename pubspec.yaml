@@ -58,6 +58,7 @@ flutter:
   assets:
     - assets/images/tugas_4flutter/
     - assets/images/tugas_6flutter/
+    - assets/images/tugas_9flutter/
     - assets/images/voter_app/
     - assets/images/app1/
   # An image asset can refer to one or more resolution-specific "variants", see

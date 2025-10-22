@@ -28,6 +28,18 @@ class _TugasModelState extends State<TugasModel> {
       appBar: AppBar(
         title: Text("Model", style: TextStyle(fontStyle: FontStyle.italic)),
       ),
+      body: ListView.builder(
+        itemCount: namaListPakaian.length,
+        itemBuilder: (BuildContext context, int index) {
+          final item = namaListPakaian[index];
+          return ListTile(
+            leading: Image.asset(item.image, height: 60, width: 60),
+            title: Text(item.name),
+            subtitle: Text("Stock: ${item.stock}"),
+          );
+        },
+        physics: BouncingScrollPhysics(),
+      ),
     );
   }
 }
