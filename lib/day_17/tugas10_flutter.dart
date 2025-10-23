@@ -61,7 +61,7 @@ class _Tugas10FlutterState extends State<Tugas10Flutter> {
                             } else if (!value.contains("@")) {
                               return "Email tidak benar";
                             } else if (!RegExp(
-                              r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$",
+                              r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$",
                             ).hasMatch(value)) {
                               return "Email Tidak Benar";
                             }
@@ -133,6 +133,12 @@ class _Tugas10FlutterState extends State<Tugas10Flutter> {
                                     );
                                   },
                                   child: Text("Lanjut"),
+                                ),
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: Text("Kembali"),
                                 ),
                               ],
                             );
