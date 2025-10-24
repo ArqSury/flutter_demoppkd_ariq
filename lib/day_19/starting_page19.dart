@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demoppkd_ariq/day_17/tugas9_flutter.dart';
 
 class StartingPage19 extends StatefulWidget {
   const StartingPage19({super.key});
@@ -14,8 +15,14 @@ class _StartingPage19State extends State<StartingPage19> {
     isLoginFunction();
   }
 
-  isLoginFunction() async {
-    Future.delayed(Duration(seconds: 3)).then((value) async {});
+  isLoginFunction() {
+    Future.delayed(Duration(seconds: 3)).then((value) {
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (context) => Tugas9Flutter()),
+        (route) => false,
+      );
+    });
   }
 
   @override
