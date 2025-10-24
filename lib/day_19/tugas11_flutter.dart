@@ -111,6 +111,7 @@ class _Tugas11FlutterState extends State<Tugas11Flutter> {
                     final data = snapshot.data as List<PublicModel>;
                     return Expanded(
                       child: ListView.builder(
+                        physics: BouncingScrollPhysics(),
                         itemCount: data.length,
                         itemBuilder: (BuildContext context, int index) {
                           final items = data[index];
