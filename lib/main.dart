@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_demoppkd_ariq/day_19/tugas11_flutter.dart';
+import 'package:flutter_demoppkd_ariq/day_19/starting_page19.dart';
+import 'package:flutter_demoppkd_ariq/voter_app/starting_page.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 void main() async {
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const Tugas11Flutter(),
+      home: const StartingPage19(),
     );
   }
 }
