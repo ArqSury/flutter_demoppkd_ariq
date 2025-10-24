@@ -17,5 +17,19 @@ class DbHelper {
     );
   }
 
-  Future<void> insertPublicModel(PublicModel public) async {}
+  static Future<void> registerPublic(PublicModel public) async {
+    final dbs = await db();
+    await dbs.insert(
+      tablePublic,
+      public.toMap(),
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
+  }
+
+  static Future<List<PublicModel>> getAllPublic() async {
+    final db = await DbHelper.db();
+    final List<Map<String, dynamic>> maps = await db.query('public');
+
+    return List.generate(maps.length, (i) => PublicModel.fromMap(maps[i]));
+  }
 }

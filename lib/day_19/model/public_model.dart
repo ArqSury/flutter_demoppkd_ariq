@@ -1,22 +1,23 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
 class PublicModel {
-  int? nik;
-  int? noHp;
   String name;
   String province;
+  int id;
+  int noHp;
   PublicModel({
     required this.name,
-    required this.nik,
     required this.province,
+    required this.id,
     required this.noHp,
   });
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'name': name,
-      'nik': nik,
       'province': province,
+      'nik': id,
       'noHp': noHp,
     };
   }
@@ -24,8 +25,8 @@ class PublicModel {
   factory PublicModel.fromMap(Map<String, dynamic> map) {
     return PublicModel(
       name: map['name'] as String,
-      nik: map['nik'] as int,
       province: map['province'] as String,
+      id: map['nik'] as int,
       noHp: map['noHp'] as int,
     );
   }
