@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demoppkd_ariq/day_19/starting_page19.dart';
-import 'package:flutter_demoppkd_ariq/voter_app/starting_page.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 void main() async {

@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_demoppkd_ariq/day_17/tugas9_flutter.dart';
-import 'package:flutter_demoppkd_ariq/day_18/login_screen18.dart';
 import 'package:flutter_demoppkd_ariq/day_19/tugas11_flutter.dart';
-import 'package:flutter_demoppkd_ariq/shared_preferences/preferences_handler.dart';
 
 class StartingPage19 extends StatefulWidget {
   const StartingPage19({super.key});
@@ -20,7 +17,7 @@ class _StartingPage19State extends State<StartingPage19> {
 
   isLoginFunction() async {
     Future.delayed(Duration(seconds: 3)).then((value) async {
-      var isLogin = await PreferencesHandler.getLogin();
+      // var isLogin = await PreferencesHandler.getLogin();
       // if (isLogin != null && isLogin == true) {
       //   Navigator.pushAndRemoveUntil(
       //     context,
