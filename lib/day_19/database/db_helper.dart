@@ -26,6 +26,24 @@ class DbHelper {
     );
   }
 
+  static Future<PublicModel?> loginPublic({
+    required String name,
+    required String province,
+    required int nik,
+    required int noHp,
+  }) async {
+    final dbs = await db();
+    final List<Map<String, dynamic>> results = await dbs.query(
+      tablePublic,
+      where: 'name = ? AND province = ? AND nik = ? AND noHp = ?',
+      whereArgs: [name, province, nik, noHp],
+    );
+    if (results.isNotEmpty) {
+      return PublicModel.fromMap(results.first);
+    }
+    return null;
+  }
+
   static Future<List<PublicModel>> getAllPublic() async {
     final db = await DbHelper.db();
     final List<Map<String, dynamic>> maps = await db.query('public');

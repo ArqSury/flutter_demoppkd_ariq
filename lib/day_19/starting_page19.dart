@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_demoppkd_ariq/day_19/tugas11_flutter.dart';
+import 'package:flutter_demoppkd_ariq/day_19/login_screen19.dart';
 
 class StartingPage19 extends StatefulWidget {
   const StartingPage19({super.key});
@@ -27,7 +27,7 @@ class _StartingPage19State extends State<StartingPage19> {
       // } else {
       Navigator.pushAndRemoveUntil(
         context,
-        MaterialPageRoute(builder: (context) => Tugas11Flutter()),
+        MaterialPageRoute(builder: (context) => LoginScreen19()),
         (route) => false,
       );
       // }

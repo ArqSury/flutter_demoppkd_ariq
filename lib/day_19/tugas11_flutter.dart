@@ -30,13 +30,14 @@ class _Tugas11FlutterState extends State<Tugas11Flutter> {
             children: [
               SizedBox(height: 30),
               Text(
-                "Selamat Datang!",
+                "Registrasi",
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
               Container(
                 margin: EdgeInsets.all(8),
                 width: double.infinity,
                 child: Column(
+                  spacing: 20,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text("Nama:", style: TextStyle(fontSize: 16)),
@@ -83,13 +84,9 @@ class _Tugas11FlutterState extends State<Tugas11Flutter> {
                       id: int.parse(nikC.text),
                       noHp: int.parse(noHpC.text),
                     );
-                    DbHelper.registerPublic(dataPublic).then((value) {
-                      setState(() {});
-                      nameC.clear();
-                      provC.clear();
-                      nikC.clear();
-                      noHpC.clear();
-                    });
+                    DbHelper.registerPublic(dataPublic);
+                    Fluttertoast.showToast(msg: 'Anda Berhasil Mendaftar');
+                    Navigator.pop(context);
                   }
                 },
                 child: Text(
@@ -100,34 +97,6 @@ class _Tugas11FlutterState extends State<Tugas11Flutter> {
                     color: Colors.black,
                   ),
                 ),
-              ),
-              Divider(height: 40),
-              FutureBuilder(
-                future: DbHelper.getAllPublic(),
-                builder: (BuildContext context, AsyncSnapshot snapshot) {
-                  if (snapshot.connectionState == ConnectionState.waiting) {
-                    return CircularProgressIndicator();
-                  } else {
-                    final data = snapshot.data as List<PublicModel>;
-                    return Expanded(
-                      child: ListView.builder(
-                        physics: BouncingScrollPhysics(),
-                        itemCount: data.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          final items = data[index];
-                          return Column(
-                            children: [
-                              ListTile(
-                                title: Text(items.name),
-                                subtitle: Text(items.id.toString()),
-                              ),
-                            ],
-                          );
-                        },
-                      ),
-                    );
-                  }
-                },
               ),
             ],
           ),
