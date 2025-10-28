@@ -2,31 +2,35 @@
 import 'dart:convert';
 
 class PublicModel {
+  int? id;
   String name;
   String province;
-  int id;
+  int nik;
   int noHp;
   PublicModel({
+    this.id,
     required this.name,
     required this.province,
-    required this.id,
+    required this.nik,
     required this.noHp,
   });
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
+      'id': id,
       'name': name,
       'province': province,
-      'nik': id,
+      'nik': nik,
       'noHp': noHp,
     };
   }
 
   factory PublicModel.fromMap(Map<String, dynamic> map) {
     return PublicModel(
+      id: map['id'] != null ? map['id'] as int : null,
       name: map['name'] as String,
       province: map['province'] as String,
-      id: map['nik'] as int,
+      nik: map['nik'] as int,
       noHp: map['noHp'] as int,
     );
   }

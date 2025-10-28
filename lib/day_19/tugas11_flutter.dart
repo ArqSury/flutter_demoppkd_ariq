@@ -81,7 +81,7 @@ class _Tugas11FlutterState extends State<Tugas11Flutter> {
                     final PublicModel dataPublic = PublicModel(
                       name: nameC.text,
                       province: provC.text,
-                      id: int.parse(nikC.text),
+                      nik: int.parse(nikC.text),
                       noHp: int.parse(noHpC.text),
                     );
                     DbHelper.registerPublic(dataPublic);

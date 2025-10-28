@@ -13,7 +13,15 @@ class DbHelper {
           "CREATE TABLE $tablePublic(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, province TEXT, nik int, noHp int)",
         );
       },
-      version: 1,
+      onUpgrade: (db, oldVersion, newVersion) async {
+        if (oldVersion < newVersion) {
+          await db.execute(
+            "CREATE TABLE $tablePublic(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, province TEXT, nik int, noHp int)",
+          );
+        }
+      },
+
+      version: 2,
     );
   }
 
@@ -47,7 +55,22 @@ class DbHelper {
   static Future<List<PublicModel>> getAllPublic() async {
     final db = await DbHelper.db();
     final List<Map<String, dynamic>> maps = await db.query('public');
-
     return List.generate(maps.length, (i) => PublicModel.fromMap(maps[i]));
+  }
+
+  static Future<void> updatePublic(PublicModel public) async {
+    final dbs = await db();
+    await dbs.update(
+      tablePublic,
+      public.toMap(),
+      where: 'id = ?',
+      whereArgs: [public.id],
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
+  }
+
+  static Future<int> deletePublic(int id) async {
+    final dbs = await db();
+    return dbs.delete(tablePublic, where: 'id = ?', whereArgs: [id]);
   }
 }
