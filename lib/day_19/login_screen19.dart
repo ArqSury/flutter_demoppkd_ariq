@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demoppkd_ariq/day_19/database/db_helper.dart';
-import 'package:flutter_demoppkd_ariq/day_19/pendaftaran19.dart';
 import 'package:flutter_demoppkd_ariq/day_19/tugas11_flutter.dart';
+import 'package:flutter_demoppkd_ariq/day_21/update21.dart';
 
 class LoginScreen19 extends StatefulWidget {
   const LoginScreen19({super.key});
@@ -126,9 +126,9 @@ class _LoginScreen19State extends State<LoginScreen19> {
                                   title: Text("Apakah data anda sudah benar?"),
                                   content: Text(
                                     "Nama: ${nameController.text}\n"
-                                    "Email: ${nikController.text}\n"
+                                    "ID: ${nikController.text}\n"
                                     "No.Hp: ${noHPController.text}\n"
-                                    "Kota Domisili: ${provController.text}",
+                                    "Provinsi: ${provController.text}",
                                   ),
                                   actions: [
                                     TextButton(
@@ -136,10 +136,7 @@ class _LoginScreen19State extends State<LoginScreen19> {
                                         Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                            builder: (context) => Pendaftaran19(
-                                              name: nameController.text,
-                                              kota: provController.text,
-                                            ),
+                                            builder: (context) => Update21(),
                                           ),
                                         );
                                       },
