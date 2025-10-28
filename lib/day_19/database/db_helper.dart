@@ -14,15 +14,14 @@ class DbHelper {
         );
       },
 
-      onUpgrade: (db, oldVersion, newVersion) async {
-        if (oldVersion < newVersion) {
-          await db.execute(
-            "CREATE TABLE $tablePublic(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, province TEXT, nik int, noHp int)",
-          );
-        }
-      },
-
-      version: 3,
+      // onUpgrade: (db, oldVersion, newVersion) async {
+      //   if (oldVersion < newVersion) {
+      //     await db.execute(
+      //       "CREATE TABLE $tablePublic(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, province TEXT, nik int, noHp int)",
+      //     );
+      //   }
+      // },
+      version: 1,
     );
   }
 
