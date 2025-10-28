@@ -13,6 +13,7 @@ class DbHelper {
           "CREATE TABLE $tablePublic(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, province TEXT, nik int, noHp int)",
         );
       },
+
       onUpgrade: (db, oldVersion, newVersion) async {
         if (oldVersion < newVersion) {
           await db.execute(
@@ -21,7 +22,7 @@ class DbHelper {
         }
       },
 
-      version: 2,
+      version: 3,
     );
   }
 
@@ -54,8 +55,8 @@ class DbHelper {
 
   static Future<List<PublicModel>> getAllPublic() async {
     final db = await DbHelper.db();
-    final List<Map<String, dynamic>> maps = await db.query('public');
-    return List.generate(maps.length, (i) => PublicModel.fromMap(maps[i]));
+    final List<Map<String, dynamic>> results = await db.query(tablePublic);
+    return results.map((e) => PublicModel.fromMap(e)).toList();
   }
 
   static Future<void> updatePublic(PublicModel public) async {

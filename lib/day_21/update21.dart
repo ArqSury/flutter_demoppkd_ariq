@@ -120,14 +120,14 @@ class _Update21State extends State<Update21> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "Registrasi",
+              "Pendaftaran",
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
             Container(
               margin: EdgeInsets.all(8),
               width: double.infinity,
               child: Column(
-                spacing: 20,
+                spacing: 12,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text("Nama:", style: TextStyle(fontSize: 16)),

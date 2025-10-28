@@ -6,7 +6,6 @@ import 'package:flutter_demoppkd_ariq/day_21/update21.dart';
 class LoginScreen19 extends StatefulWidget {
   const LoginScreen19({super.key});
   static const id = '/login_scree19';
-
   @override
   State<LoginScreen19> createState() => _LoginScreen19State();
 }
