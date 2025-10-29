@@ -274,7 +274,7 @@ class _Update21State extends State<Update21> {
       validator: validator,
       controller: controller,
       decoration: InputDecoration(
-        hintText: '',
+        hintText: hint,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(12)),
           borderSide: BorderSide(color: Colors.black),
