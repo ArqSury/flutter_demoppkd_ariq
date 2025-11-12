@@ -19,46 +19,74 @@ class _HomeScreen32State extends State<HomeScreen32> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Hogwarts Houses'),
-        backgroundColor: Colors.deepPurple,
-      ),
-      body: GridView.builder(
-        padding: const EdgeInsets.all(16),
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          mainAxisSpacing: 16,
-          crossAxisSpacing: 16,
-        ),
-        itemCount: houses.length,
-        itemBuilder: (context, index) {
-          final house = houses[index];
-          return GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (_) => HouseScreen32(house: house)),
-              );
-            },
-            child: Container(
-              decoration: BoxDecoration(
-                color: _getHouseColor(house),
-                borderRadius: BorderRadius.circular(16),
+      backgroundColor: Color(0xFFFFE08F),
+      body: Center(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            children: [
+              CircleAvatar(
+                backgroundImage: AssetImage('assets/images/day_32/gandalf.gif'),
+                radius: 60,
               ),
-              child: Center(
-                child: Text(
-                  house,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                  ),
+              SizedBox(height: 16),
+              Text(
+                'Pick your House!',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontStyle: FontStyle.italic,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 16),
+              buildHouse(),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  GridView buildHouse() {
+    return GridView.builder(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      padding: const EdgeInsets.all(16),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        mainAxisSpacing: 16,
+        crossAxisSpacing: 16,
+        childAspectRatio: 1.3,
+      ),
+      itemCount: houses.length,
+      itemBuilder: (context, index) {
+        final house = houses[index];
+        return GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => HouseScreen32(house: house)),
+            );
+          },
+          child: Container(
+            decoration: BoxDecoration(
+              color: _getHouseColor(house),
+              borderRadius: BorderRadius.circular(16),
+              boxShadow: [BoxShadow(blurRadius: 8, color: Colors.black)],
+            ),
+            child: Center(
+              child: Text(
+                house,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ),
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 

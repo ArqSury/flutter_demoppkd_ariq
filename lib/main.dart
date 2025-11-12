@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_demoppkd_ariq/day_32/views/home_screen32.dart';
+import 'package:flutter_demoppkd_ariq/day_32/views/splash_screen32.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 void main() async {
@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const HomeScreen32(),
+      home: const SplashScreen32(),
     );
   }
 }
