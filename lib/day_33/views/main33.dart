@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_demoppkd_ariq/day_33/branches/home33.dart';
+import 'package:flutter_demoppkd_ariq/day_33/branches/list33.dart';
 import 'package:flutter_demoppkd_ariq/day_33/views/login33.dart';
 
 class Main33 extends StatefulWidget {
@@ -12,7 +12,7 @@ class Main33 extends StatefulWidget {
 class _Main33State extends State<Main33> {
   int _selectedDrawer = 0;
 
-  static const List<Widget> _drawerOption = [Home33()];
+  static const List<Widget> _drawerOption = [List33()];
 
   void onTapped(int index) {
     setState(() {
@@ -25,6 +25,7 @@ class _Main33State extends State<Main33> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(),
         drawer: Drawer(
           child: ListView(
             children: [
@@ -37,13 +38,13 @@ class _Main33State extends State<Main33> {
                 title: Text('Sekip App'),
                 subtitle: Text('Ariq Surya Wardhana'),
               ),
-              Divider(),
+              Divider(color: Colors.black),
               ListTile(
                 onTap: () {
                   onTapped(0);
                 },
                 leading: Icon(Icons.home),
-                title: Text('Beranda'),
+                title: Text('Daftar'),
               ),
               Divider(),
               ListTile(
