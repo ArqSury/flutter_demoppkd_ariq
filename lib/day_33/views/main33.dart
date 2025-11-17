@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_demoppkd_ariq/day_33/model/profile_model.dart';
-import 'package:flutter_demoppkd_ariq/day_33/service/api.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:flutter_demoppkd_ariq/day_33/branches/home33.dart';
+import 'package:flutter_demoppkd_ariq/day_33/views/login33.dart';
 
 class Main33 extends StatefulWidget {
   const Main33({super.key});
@@ -11,106 +10,57 @@ class Main33 extends StatefulWidget {
 }
 
 class _Main33State extends State<Main33> {
-  ProfileModel? profile;
-  bool isLoading = false;
-  bool isEditing = false;
+  int _selectedDrawer = 0;
 
-  final TextEditingController nameC = TextEditingController();
+  static const List<Widget> _drawerOption = [Home33()];
 
-  @override
-  void initState() {
-    super.initState();
-    fetchProfileData();
-  }
-
-  Future<void> fetchProfileData() async {
-    setState(() => isLoading = true);
-
-    try {
-      final data = await AuthAPI.getProfile();
-      setState(() {
-        profile = data;
-        nameC.text = data.data?.name ?? "";
-        isLoading = false;
-      });
-    } catch (e) {
-      Fluttertoast.showToast(msg: e.toString());
-      setState(() => isLoading = false);
-    }
-  }
-
-  Future<void> updateProfile() async {
-    setState(() => isLoading = true);
-
-    try {
-      final newProfile = await AuthAPI.updateProfile(name: nameC.text);
-
-      setState(() {
-        profile = newProfile;
-        isEditing = false;
-        isLoading = false;
-      });
-
-      Fluttertoast.showToast(msg: "Profile Updated!");
-    } catch (e) {
-      Fluttertoast.showToast(msg: e.toString());
-      setState(() => isLoading = false);
-    }
+  void onTapped(int index) {
+    setState(() {
+      _selectedDrawer = index;
+    });
+    Navigator.pop(context);
   }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          title: Text('Profile List'),
-          centerTitle: true,
-          actions: [
-            IconButton(
-              icon: Icon(isEditing ? Icons.close : Icons.edit),
-              onPressed: () {
-                setState(() {
-                  isEditing = !isEditing;
-                });
-              },
-            ),
-          ],
+        drawer: Drawer(
+          child: ListView(
+            children: [
+              ListTile(
+                leading: CircleAvatar(
+                  backgroundImage: AssetImage(
+                    'assets/images/app1/profil_foto.jpg',
+                  ),
+                ),
+                title: Text('Sekip App'),
+                subtitle: Text('Ariq Surya Wardhana'),
+              ),
+              Divider(),
+              ListTile(
+                onTap: () {
+                  onTapped(0);
+                },
+                leading: Icon(Icons.home),
+                title: Text('Beranda'),
+              ),
+              Divider(),
+              ListTile(
+                onTap: () {
+                  Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (context) => Login33()),
+                    (route) => false,
+                  );
+                },
+                leading: Icon(Icons.logout),
+                title: Text('Keluar'),
+              ),
+            ],
+          ),
         ),
-        body: isLoading
-            ? const Center(child: CircularProgressIndicator())
-            : buildContent(),
-      ),
-    );
-  }
-
-  Widget buildContent() {
-    return Padding(
-      padding: const EdgeInsets.all(16),
-      child: Column(
-        children: [
-          TextFormField(
-            controller: nameC,
-            enabled: isEditing,
-            decoration: InputDecoration(labelText: "Nama"),
-          ),
-          SizedBox(height: 16),
-          if (isEditing)
-            ElevatedButton(
-              onPressed: updateProfile,
-              child: Text("Simpan Perubahan"),
-            ),
-
-          SizedBox(height: 32),
-          Divider(),
-          Text(
-            "Dibuat: ${profile?.data?.createdAt}",
-            style: TextStyle(fontSize: 12, color: Colors.grey),
-          ),
-          Text(
-            "Update Terakhir: ${profile?.data?.updatedAt}",
-            style: TextStyle(fontSize: 12, color: Colors.grey),
-          ),
-        ],
+        body: _drawerOption[_selectedDrawer],
       ),
     );
   }

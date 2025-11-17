@@ -35,7 +35,7 @@ class AuthAPI {
     required String email,
     required String password,
   }) async {
-    final url = Uri.parse(Endpoint.register);
+    final url = Uri.parse(Endpoint.login);
     final response = await http.post(
       url,
       headers: {"Accept": "application/json"},

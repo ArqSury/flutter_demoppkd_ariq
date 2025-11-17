@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demoppkd_ariq/day_33/model/login_model.dart';
 import 'package:flutter_demoppkd_ariq/day_33/service/api.dart';
 import 'package:flutter_demoppkd_ariq/day_33/views/main33.dart';
 import 'package:flutter_demoppkd_ariq/day_33/views/regis33.dart';
@@ -17,6 +18,8 @@ class _Login33State extends State<Login33> {
   final TextEditingController emailC = TextEditingController();
   bool isVisiblity = false;
   bool isLoading = false;
+
+  LoginModel? loginResult;
 
   final _formKey = GlobalKey<FormState>();
   @override
@@ -73,6 +76,7 @@ class _Login33State extends State<Login33> {
               buildInputUser(
                 hintText: 'Masukan kata sandi anda',
                 controller: passwordC,
+                isPassword: true,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return "Email tidak boleh kosong";
@@ -99,6 +103,8 @@ class _Login33State extends State<Login33> {
                         email: emailC.text,
                         password: passwordC.text,
                       );
+
+                      setState(() => loginResult = result);
 
                       await PreferencesHandler.saveToken(result.data!.token!);
                       Fluttertoast.showToast(msg: "Login Berhasil");
